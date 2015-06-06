@@ -8,4 +8,5 @@
 * FileZilla
 * Foxmail
 * SandBoxie
-* Oxdbe
+* 0xdbe
+* PhotoShop
