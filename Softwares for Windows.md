@@ -10,3 +10,5 @@
 * SandBoxie
 * 0xdbe
 * PhotoShop
+* Fiddler
+* Listary
