@@ -1,4 +1,5 @@
 * 0xdbe
+* 7-zip
 * Apago PDF Shrink
 * Beyond Compare
 * Dukto
@@ -15,8 +16,11 @@
 * Microsoft Visio 2013
 * PhotoShop
 * PhotoZoom Pro
+* QQ
 * Remote Desktop Organizer
 * SandBoxie
+* Sogou Input
+* Thunder
 * Visual Studio
 * Ultraiso
 * WireShark
