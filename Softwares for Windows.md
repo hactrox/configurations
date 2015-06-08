@@ -13,3 +13,9 @@
 * Fiddler
 * Listary
 * Dukto
+* HeidiSQL
+* PhotoZoom Pro
+* HashTab Shell Extension
+* KeePass
+* WireShark
+* Remote Desktop Organizer
