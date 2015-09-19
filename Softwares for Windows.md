@@ -2,7 +2,9 @@
 * 7-zip
 * Apago PDF Shrink
 * Beyond Compare
+* Dropbox
 * Dukto
+* Everything
 * FastStone Capture
 * Fiddler
 * FileZilla
@@ -21,6 +23,7 @@
 * SandBoxie
 * Sogou Input
 * Thunder
-* Visual Studio
+* Visual Studio 2013
 * Ultraiso
 * WireShark
+* WizTree
