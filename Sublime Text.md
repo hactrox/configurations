@@ -5,23 +5,27 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 * Git
 * GitGutter
 * Alignment
-<pre>
-Notice the hot key "Ctrl + Alt + A" conflicts with QQ, so we should change this hot key
-Goto Preferences => Package Settings => Alignment => Key Bindding - User
-Then copy and paste the following configuration:
-**[
-	{ "keys": ["ctrl+alt+f"], "command": "alignment" }
-]**
-</pre>
+	<pre>
+	Notice the hot key "Ctrl + Alt + A" conflicts with QQ, so we should change this hot key.
+	Goto Preferences => Package Settings => Alignment => Key Bindding - User
+	Then copy and paste the following configuration:
+	**[
+		{ "keys": ["ctrl+alt+f"], "command": "alignment" }
+	]**
+	</pre>
 * ConvertToUTF8
 * AllAutocomplete
-<pre>
-Find all matchs in all open files.
-</pre>
+	<pre>
+	Find all matchs in all open files.
+	</pre>
 * Sublime CodeIntel
-<pre>
-Full-featured code intelligence and smart autocomplete engine 
-</pre>
+	<pre>
+	Full-featured code intelligence and smart autocomplete engine 
+	</pre>
 * Bracket Highlighter
 * Hex to HSL Color Convert
-* 
+* SublimeAStyleFormatter
+<pre>
+https://github.com/timonwong/SublimeAStyleFormatter 
+It provides ability to format C/C++/C#/Java files.
+</pre>
