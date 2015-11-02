@@ -2,6 +2,7 @@
 * 7-zip
 * Apago PDF Shrink
 * Beyond Compare
+* Cmder
 * Dropbox
 * Dukto
 * Everything
