@@ -1,6 +1,7 @@
 * 0xdbe
 * 7-zip
 * Apago PDF Shrink
+* AutoHotKey
 * Beyond Compare
 * Cmder
 * Dropbox
@@ -19,6 +20,7 @@
 * Microsoft Visio 2013
 * PhotoShop
 * PhotoZoom Pro
+* Process Lasso
 * QQ
 * Remote Desktop Organizer
 * SandBoxie
