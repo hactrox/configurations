@@ -25,7 +25,11 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 * Bracket Highlighter
 * Hex to HSL Color Convert
 * SublimeAStyleFormatter
-<pre>
-https://github.com/timonwong/SublimeAStyleFormatter 
-It provides ability to format C/C++/C#/Java files.
-</pre>
+	<pre>
+	https://github.com/timonwong/SublimeAStyleFormatter 
+	It provides ability to format C/C++/C#/Java files.
+	</pre>
+* SublimeLinter
+	<pre>
+	Hieglight errors in your code.
+	</pre>
