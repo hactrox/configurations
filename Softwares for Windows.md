@@ -1,4 +1,3 @@
-* 0xdbe
 * 1Password
 * 7-zip
 * Apago PDF Shrink
