@@ -4,6 +4,8 @@
 * AutoHotKey
 * Beyond Compare
 * Cmder
+* CrystalDiskInfo
+* Ditto
 * Dropbox
 * Dukto
 * Everything
@@ -11,7 +13,11 @@
 * Fiddler
 * FileZilla
 * Foxmail
+* f.lux
 * Git
+* GitHub
+* Google Chrome
+* Gow
 * HashTab Shell Extension
 * HeidiSQL
 * KeePass
@@ -28,5 +34,6 @@
 * Thunder
 * Visual Studio 2013
 * Ultraiso
+* Wink
 * WireShark
 * WizTree
