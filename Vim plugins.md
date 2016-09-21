@@ -5,3 +5,4 @@
 * [supertab](https://github.com/ervandew/supertab)
 * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 * [delimitMate](https://github.com/Raimondi/delimitMate)
+* [python-syntax](https://github.com/hdima/python-syntax)
