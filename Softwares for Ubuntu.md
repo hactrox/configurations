@@ -1,7 +1,4 @@
 * [mycli](#mycli)
-
-
-- - -
 >
 <code>https://github.com/dbcli/mycli</code>
 <br />
