@@ -1,8 +1,0 @@
-* [neocomplete](https://github.com/Shougo/neocomplete.vim)
-* [nerdtree](https://github.com/scrooloose/nerdtree)
-* [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides)
-* [vim-powerline](https://github.com/Lokaltog/vim-powerline)
-* [supertab](https://github.com/ervandew/supertab)
-* [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-* [delimitMate](https://github.com/Raimondi/delimitMate)
-* [python-syntax](https://github.com/hdima/python-syntax)
