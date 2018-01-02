@@ -1,11 +1,12 @@
 " 定义快捷键的前缀，即<Leader>
-let mapleader="`"
+let mapleader=" "
 
 
 " 让配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-
+" 当文件在外部被改变时自动重新载入
+set autoread
 " 开启文件类型侦测
 filetype on
 " 根据侦测到的不同类型加载对应的插件
@@ -95,30 +96,44 @@ set foldmethod=syntax
 set nofoldenable
 
 
+" golang
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+
+
 " vundle 环境设置
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 " vundle 管理的插件列表必须位于 vundle#begin() 和 vundle#end() 之间
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'powerline/powerline'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'fatih/vim-go'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'w0rp/ale'
+Plugin 'tpope/vim-commentary'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'dracula/vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'NLKNguyen/papercolor-theme'
 " 插件列表结束
 call vundle#end()
 filetype plugin indent on
 
 
-" vim-colors-solarized
+" theme
 set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme PaperColor
 
-" powerline/powerline
+" powerline
 " 总是显示状态栏
 set laststatus=2
 
-" nathanaelkane/vim-indent-guides
+" vim-indent-guides
 " 随 vim 自启动
 let g:indent_guides_enable_on_vim_startup=1
 " 从第二层开始可视化显示缩进
@@ -127,4 +142,20 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 " 快捷键 i 开/关缩进可视化
 :nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+
+" ale
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_statusline_format = ['⨉ %d', '⚠  %d', '⬥ ok']
+let g:airline#extensions#ale#enabled = 1
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
+" nerdtree
+" 打开文件时自动开启 nerdtree
+"autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
 
