@@ -82,6 +82,15 @@ echo 'PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
 source /etc/profile
 go version
 
+# Init new disk
+fdisk -u /dev/vdb
+mkfs -t ext4 /dev/vdb1
+cp /etc/fstab /etc/fstab.bak
+echo `blkid /dev/vdb1 | awk '{print $2}' | sed 's/\"//g'` /fullnode ext4 defaults 0 0 >> /etc/fstab
+mkdir /fullnode
+mount /dev/vdb1 /fullnode
+
+
 # Install AWS SSM
 # https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-centos
 sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
