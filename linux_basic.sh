@@ -35,6 +35,7 @@ make configure && ./configure --prefix=/usr && make && sudo make install
 sudo yum -y update && sudo yum -y install yum-utils && sudo yum -y groupinstall development
 sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum -y install python36u python36u-libs python36u-devel python36u-pip
+sudo ln -s /usr/bin/python3.6 /usr/bin/python3; sudo ln -s /usr/bin/pip3.6 /usr/bin/pip3
 
 # Install latest vim
 sudo yum -y install perl perl-devel perl-ExtUtils-XSpp perl-ExtUtils-CBuilder perl-ExtUtils-Embed tcl-devel lua-devel ncurses-devel vim-X11
