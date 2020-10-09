@@ -71,6 +71,7 @@ sh autogen.sh
 # Install dotnet
 sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
 sudo yum -y install dotnet-sdk-2.2
+sudo yum install dotnet-sdk-3.1
 
 # Install golang
 mkdir -p ~/downloads
