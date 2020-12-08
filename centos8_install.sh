@@ -26,15 +26,15 @@ sudo yum install -y make curl curl-devel expat-devel gettext-devel openssl-devel
 v=2.29.2;wget https://www.kernel.org/pub/software/scm/git/git-$v.tar.gz -O git-$v.tar.gz && tar -zxf git-$v.tar.gz && cd git-$v; unset v
 make configure && ./configure --prefix=/usr && make && sudo make install
 
+# Install python3
+sudo yum -y install python3 python3-devel
+
 # Install latest vim
 sudo yum -y install perl perl-devel perl-ExtUtils-CBuilder perl-ExtUtils-Embed tcl-devel ncurses-devel vim-X11
 # cd /bin && sudo ln -s python3.6 python3
 mkdir -p ~/downloads
 cd ~/downloads
 git clone https://github.com/vim/vim.git && cd vim
-
-# Install python3
-sudo yum -y install python3 python3-devel
 
 sudo CFLAGS=-fPIC ./configure --with-features=huge \
             --enable-multibyte \
