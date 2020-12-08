@@ -12,6 +12,9 @@ sudo reboot
 # Update softwares
 sudo yum -y update
 
+# Add epel repo
+sudo yum install epel-release -y
+
 # Enable bbr
 echo 'net.core.default_qdisc=fq' | sudo tee -a /etc/sysctl.conf
 echo 'net.ipv4.tcp_congestion_control=bbr' | sudo tee -a /etc/sysctl.conf
@@ -82,3 +85,11 @@ sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/late
 sudo systemctl enable amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent
 sudo systemctl status amazon-ssm-agent
+
+# Install AWS CloudWatch
+cd ~/downloads
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/centos/amd64/latest/amazon-cloudwatch-agent.rpm
+sudo rpm -U ./amazon-cloudwatch-agent.rpm
+# Copy cloud watch configuration from aws console to ~/downloads/config.json
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:~/downloads/config.json
+systemctl status amazon-cloudwatch-agent
