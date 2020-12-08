@@ -78,6 +78,9 @@ echo 'PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
 source /etc/profile
 go version
 
+# Set custom hostname
+sudo hostnamectl set-hostname XXX
+sudo sh -c 'echo "preserve_hostname: true" >> /etc/cloud/cloud.cfg'
 
 # Install AWS SSM
 # https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-centos
