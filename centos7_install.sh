@@ -122,6 +122,10 @@ chmod +x ./install
 sudo ./install auto
 sudo service codedeploy-agent status
 
+# Set custom hostname
+sudo hostnamectl set-hostname XXX
+sudo sh -c 'echo "preserve_hostname: true" >> /etc/cloud/cloud.cfg'
+
 # Create ssh data for user www
 su - www
 
