@@ -33,6 +33,7 @@ cd ~/downloads
 sudo yum install -y curl curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel asciidoc xmlto autoconf gcc wget
 v=2.29.2;wget https://www.kernel.org/pub/software/scm/git/git-$v.tar.gz -O git-$v.tar.gz && tar -zxf git-$v.tar.gz && cd git-$v; unset v
 make configure && ./configure --prefix=/usr && make && sudo make install
+git --version
 
 # Install python3
 sudo yum -y update && sudo yum -y install yum-utils && sudo yum -y groupinstall development
