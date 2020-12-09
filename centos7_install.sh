@@ -80,7 +80,7 @@ sudo yum -y install dotnet-sdk-3.1
 # Install golang
 mkdir -p ~/downloads
 cd ~/downloads
-v=1.15.2;wget https://golang.org/dl/go$v.linux-amd64.tar.gz && \
+v=1.15.6;wget https://golang.org/dl/go$v.linux-amd64.tar.gz && \
 sudo rm -rf /usr/local/go && \
 sudo tar -C /usr/local -xzf go$v.linux-amd64.tar.gz
 echo 'PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
