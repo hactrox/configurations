@@ -87,6 +87,13 @@ echo 'PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
 source /etc/profile
 go version
 
+# Install NodeJS 12.x
+curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
+sudo yum install -y nodejs
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
+sudo yum -y install yarn
+
 # Init new disk
 fdisk -u /dev/vdb
 mkfs -t ext4 /dev/vdb1
