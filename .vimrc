@@ -122,7 +122,7 @@ call plug#begin(expand($BUNDLE))
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 Plug 'nsf/gocode', {'rtp': 'nvim/'} " Install plugin from https://github.com/nsf/gocode
@@ -147,12 +147,14 @@ set updatetime=100
 
 " nerdtree
 let NERDTreeShowHidden = 1
-function! ToggleNERDTreeOnStartup()
-    if @% == ""
-        NERDTree
-    endif
-endfunction
-au VimEnter * call ToggleNERDTreeOnStartup()
+
+" function! ToggleNERDTreeOnStartup()
+"     if @% == ""
+"         NERDTree
+"     endif
+" endfunction
+" au VimEnter * call ToggleNERDTreeOnStartup()
+"
 map <C-n> :NERDTreeToggle<CR>
 " close vim if the only window left open is a NERDTree
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
