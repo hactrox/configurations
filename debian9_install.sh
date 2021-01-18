@@ -58,3 +58,7 @@ git clone https://github.com/tmux/tmux.git
 cd tmux
 sh autogen.sh
 ./configure && make && sudo make install
+
+# Set custom hostname
+sudo hostnamectl set-hostname XXX
+sudo sh -c 'echo "preserve_hostname: true" >> /etc/cloud/cloud.cfg'
