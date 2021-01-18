@@ -62,3 +62,13 @@ sh autogen.sh
 # Set custom hostname
 sudo hostnamectl set-hostname XXX
 sudo sh -c 'echo "preserve_hostname: true" >> /etc/cloud/cloud.cfg'
+
+# Install AWS SSM
+# https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-centos
+mkdir /tmp/ssm
+cd /tmp/ssm
+wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
+sudo dpkg -i amazon-ssm-agent.deb
+sudo systemctl enable amazon-ssm-agent
+sudo systemctl start amazon-ssm-agent
+sudo systemctl status amazon-ssm-agent
