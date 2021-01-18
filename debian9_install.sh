@@ -25,3 +25,24 @@ sudo tar -C /usr/local -xzf go$v.linux-amd64.tar.gz
 echo 'PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
 source /etc/profile
 go version
+
+# Install latest vim
+sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev \
+libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev
+mkdir -p ~/downloads
+cd ~/downloads
+git clone https://github.com/vim/vim.git && cd vim
+
+sudo ./configure --with-features=huge \
+            --enable-multibyte \
+	--enable-luainterp=yes \
+            --enable-python3interp=yes \
+            --enable-perlinterp \
+            --enable-gui=auto \
+            --enable-cscope \
+            --prefix=/usr\
+            --enable-fail-if-missing
+
+make && sudo make install
