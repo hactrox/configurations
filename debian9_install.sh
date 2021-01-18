@@ -72,3 +72,12 @@ sudo dpkg -i amazon-ssm-agent.deb
 sudo systemctl enable amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent
 sudo systemctl status amazon-ssm-agent
+
+# Install AWS CloudWatch
+cd ~/downloads
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/debian/amd64/latest/amazon-cloudwatch-agent.deb
+sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+# Copy cloud watch configuration from aws console to ~/downloads/config.json
+sudo apt -y install collectd
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:config.json
+systemctl status amazon-cloudwatch-agent
