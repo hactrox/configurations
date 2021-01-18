@@ -48,7 +48,7 @@ sudo ./configure --with-features=huge \
 make && sudo make install
 
 # Install screen
-sudo yum -y install screen
+sudo apt -y install screen
 
 # Install tmux
 sudo apt install -y gcc make pkg-config automake autoconf libevent-dev bison
