@@ -46,3 +46,15 @@ sudo ./configure --with-features=huge \
             --enable-fail-if-missing
 
 make && sudo make install
+
+# Install screen
+sudo yum -y install screen
+
+# Install tmux
+sudo apt install -y gcc make pkg-config automake autoconf libevent-dev bison
+mkdir -p ~/downloads
+cd ~/downloads
+git clone https://github.com/tmux/tmux.git
+cd tmux
+sh autogen.sh
+./configure && make && sudo make install
