@@ -46,6 +46,7 @@ sudo ./configure --with-features=huge \
             --enable-fail-if-missing
 
 make && sudo make install
+vim --version |grep "VIM - Vi"
 
 # Install screen
 sudo apt -y install screen
