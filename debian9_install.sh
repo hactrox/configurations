@@ -50,6 +50,7 @@ vim --version |grep "VIM - Vi"
 
 # Install screen
 sudo apt -y install screen
+screen -v
 
 # Install tmux
 sudo apt install -y gcc make pkg-config automake autoconf libevent-dev bison
@@ -59,6 +60,7 @@ git clone https://github.com/tmux/tmux.git
 cd tmux
 sh autogen.sh
 ./configure && make && sudo make install
+tmux -V
 
 # Set custom hostname
 sudo hostnamectl set-hostname XXX
