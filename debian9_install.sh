@@ -62,6 +62,23 @@ sh autogen.sh
 ./configure && make && sudo make install
 tmux -V
 
+# Install docker 
+sudo apt-get -y remove docker docker-engine docker.io containerd runc
+sudo apt-get -y update
+sudo apt-get -y install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get -y update
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+
 # Install AWS SSM
 # https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-centos
 mkdir /tmp/ssm
