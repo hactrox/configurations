@@ -62,14 +62,6 @@ sh autogen.sh
 ./configure && make && sudo make install
 tmux -V
 
-# Set custom hostname
-newhostname=XXX
-sudo hostnamectl set-hostname $newhostname
-sudo sed -i 's/preserve_hostname: false/preserve_hostname: true' /etc/cloud/cloud.cfg
-sudo sed -i 's/manage_etc_hosts: true/manage_etc_hosts: false/' /etc/cloud/cloud.cfg.d/01_debian_cloud.cfg
-sudo sed -i "s/127.0.0.1 localhost/127.0.0.1 localhost $newhostname/" /etc/hosts
-unset newhostname
-
 # Install AWS SSM
 # https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-centos
 mkdir /tmp/ssm
@@ -88,3 +80,11 @@ sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
 sudo apt -y install collectd
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:config.json
 systemctl status amazon-cloudwatch-agent
+
+# Set custom hostname
+newhostname=XXX
+sudo hostnamectl set-hostname $newhostname
+sudo sed -i 's/preserve_hostname: false/preserve_hostname: true' /etc/cloud/cloud.cfg
+sudo sed -i 's/manage_etc_hosts: true/manage_etc_hosts: false/' /etc/cloud/cloud.cfg.d/01_debian_cloud.cfg
+sudo sed -i "s/127.0.0.1 localhost/127.0.0.1 localhost $newhostname/" /etc/hosts
+unset newhostname
