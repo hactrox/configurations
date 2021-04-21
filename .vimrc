@@ -1,6 +1,7 @@
 " 定义快捷键的前缀，即<Leader>
-let mapleader=" "
+let mapleader="\<space>"
 
+set termguicolors
 
 " 当文件在外部被改变时自动重新载入
 set autoread
@@ -8,6 +9,9 @@ set autoread
 filetype on
 " 根据侦测到的不同类型加载对应的插件
 filetype plugin on
+" 定义快捷键到行首和行尾
+nmap LB 0
+nmap LE $
 " 定义快捷键到行首和行尾 nmap LB 0 nmap LE $
 nnoremap <C-]> <esc>
 " 设置快捷键将选中文本块复制至系统剪贴板
@@ -46,7 +50,7 @@ set shiftwidth=4
 " 让 vim 把连续数量的空格视为一个制表符
 set softtabstop=4
 " 启动时不显示信息
-set shortmess=atI
+set shortmess=atIc
 " 禁止光标闪烁
 set gcr=a:block-blinkon0
 " 禁止显示滚动条
@@ -101,7 +105,7 @@ autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage)
-autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+" autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 
 " python
 autocmd FileType python nnoremap <Leader>r :exec '!python' shellescape(@%, 1)<cr>
@@ -120,11 +124,12 @@ source $PLUG_FILE
 
 call plug#begin(expand($BUNDLE))
 
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nsf/gocode', {'rtp': 'nvim/'} " Install plugin from https://github.com/nsf/gocode
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-airline/vim-airline'
@@ -134,6 +139,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tomlion/vim-solidity'
+Plug 'ojroques/vim-oscyank'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -142,22 +150,43 @@ call plug#end()
 set background=dark
 colorscheme PaperColor
 
+" coc.nvim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" deoplete
+" let g:deoplete#enable_at_startup = 1
+
+
 " vim-gitgutter
 set updatetime=100
+
+
+" auto-pairs
+let g:AutoPairsShortcutToggle = ''
+
 
 " nerdtree
 let NERDTreeShowHidden = 1
 
-" function! ToggleNERDTreeOnStartup()
-"     if @% == ""
-"         NERDTree
-"     endif
-" endfunction
-" au VimEnter * call ToggleNERDTreeOnStartup()
-"
+function! ToggleNERDTreeOnStartup()
+    if @% == ""
+        NERDTree
+    endif
+endfunction
+au VimEnter * call ToggleNERDTreeOnStartup()
+
 map <C-n> :NERDTreeToggle<CR>
 " close vim if the only window left open is a NERDTree
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup=0
@@ -168,20 +197,27 @@ let g:indent_guides_start_level = 2
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
 :nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
+
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+
+
+" fzf
+command! -bang -nargs=* Find call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
 
 " vim-go
 " let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_template_autocreate = 0
+let g:go_def_mapping_enabled = 0
 
 let g:go_metalinter_command = "golangci-lint"
-let g:go_metalinter_enabled = ['govet', 'golint', 'errcheck', 'gocyclo', 'deadcode', 'gosimple', 'staticcheck']
-let g:go_metalinter_autosave_enabled = ['govet', 'golint', 'errcheck', 'gocyclo', 'deadcode', 'gosimple', 'staticcheck']
+let g:go_metalinter_enabled = ['govet', 'errcheck', 'gocyclo', 'deadcode', 'gosimple', 'staticcheck']
+let g:go_metalinter_autosave_enabled = ['govet', 'gocyclo', 'deadcode', 'gosimple', 'staticcheck']
 let g:go_metalinter_deadline = "60s"
 
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
